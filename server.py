@@ -4,23 +4,21 @@ from datetime import datetime
 import connect4
 
 app = Flask(__name__)
-moves = []
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    winner = 0
     if request.method == 'POST':
-        global moves
         try:
             if request.form['restart'] == 'Restart':
-                moves = []
+                connect4.reset()
         except:
             if int(request.form['column']) in range(8):
-                moves.append(int(request.form['column']))
-    board = connect4.render(moves)
-    winner = 0
-    #if connect4.lastMoveWin(board):
-    #    winner = len(moves) % 2
-    return render_template("index.html", display=board, winner=winner)
+                val = int(request.form['column']) - 1
+                connect4.moveAdder(val)
+            if connect4.lastMoveWin(val):
+                winner = connect4.color
+    return render_template("index.html", display=connect4.board, winner=winner)
 
 if __name__ == "__main__":
     app.run(debug=True)
