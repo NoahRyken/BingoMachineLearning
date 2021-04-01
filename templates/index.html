@@ -5,36 +5,11 @@
 {% endblock %}
 
 {% block body %}
-{{winner}}
-<h1>Connect 4</h1>
-<style>
-    p {
-        display: inline;
-        font-size: 27
-    }
-</style>
-{% for column in display %}
-    {% for piece in column %}
-        {% if piece == -1 %}
-        <p style="color:red">&#9660;</p>
-        {% elif piece == 1 %}
-        <p style="color:yellow">&#9660;</p>
-        {% else %}
-        <p style="color:black">&#9661;</p>
-        {% endif %}
-        
-    {% endfor %}
-    <p><br></p>
-{% endfor %}
+<h1>Welcome To Connect 4</h1>
+<h2>Select A Game Mode:</h2>
 <form action='/' method='POST'>
-    <input type='submit' name='column' id='column1' value='1'>
-    <input type='submit' name='column' id='column2' value='2'>
-    <input type='submit' name='column' id='column3' value='3'>
-    <input type='submit' name='column' id='column4' value='4'>
-    <input type='submit' name='column' id='column5' value='5'>
-    <input type='submit' name='column' id='column6' value='6'>
-    <input type='submit' name='column' id='column7' value='7'>
-    <input type='submit' name='restart' id='restart' value='Restart'>
+    <input type='submit' name='gameSelect' id='gameSelect' value='Player Vs. Player'>
+    <input type='submit' name='gameSelect' id='gameSelect' value='Player Vs. Easy'>
+    <input type='submit' name='gameSelect' id='gameSelect' value='Easy Vs. Easy'>
 </form>
-
 {% endblock %}
