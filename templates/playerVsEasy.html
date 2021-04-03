@@ -6,9 +6,11 @@
 
 {% block body %}
 <h1>Connect 4</h1>
-{% if winner == -1 %}
-    <h2 style ="color:red"> Red Wins! </h2>
+{% if winner == 2 %}
+    <h2 style ="color:rgb(66, 66, 66)"> Draw </h2>
 {% elif winner == 1 %}
+    <h2 style ="color:red"> Red Wins! </h2>
+{% elif winner == -1 %}
     <h2 style ="color:yellow"> Yellow Wins! </h2>
 {% elif color == 1 %}
     <h2 style ="color:red"> Red's Turn </h2>
@@ -45,11 +47,11 @@
         <input type='submit' name='column' id='column5' value='5'>
         <input type='submit' name='column' id='column6' value='6'>
         <input type='submit' name='column' id='column7' value='7'>
-        <input type='submit' name='restart' id='restart' value='Restart'>
+        <input type='submit' name='reset' id='reset' value='Reset'>
     </form>
 {% else %}
 <form action='/playerVsEasy' method='POST'>
-    <input type='submit' name='restart' id='restart' value='Restart'>
+    <input type='submit' name='reset' id='reset' value='Reset'>
 </form>
 {% endif %}
 <p></p>
