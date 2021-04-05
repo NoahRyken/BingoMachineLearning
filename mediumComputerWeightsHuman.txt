@@ -1,0 +1,9 @@
+On 10000 iterations
+The average weight was 20.854914285714287
+Index 0 had an average weight of 4.44 with a maximum of 47 and a deviation of -16.414914285714286
+Index 1 had an average weight of 17.6587 with a maximum of 93 and a deviation of -3.1962142857142872
+Index 2 had an average weight of 31.0103 with a maximum of 141 and a deviation of 10.155385714285714
+Index 3 had an average weight of 38.3828 with a maximum of 119 and a deviation of 17.527885714285716
+Index 4 had an average weight of 31.6577 with a maximum of 134 and a deviation of 10.802785714285712
+Index 5 had an average weight of 16.1471 with a maximum of 96 and a deviation of -4.707814285714289
+Index 6 had an average weight of 6.6878 with a maximum of 80 and a deviation of -14.167114285714288

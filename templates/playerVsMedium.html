@@ -37,7 +37,7 @@
     <p><br></p>
 {% endfor %}
 {% if winner == 0%}
-    <form action='/playerVsEasy' method='POST'>
+    <form action='/playerVsMedium' method='POST'>
         <input type='submit' name='column' id='column1' value='1'>
         <input type='submit' name='column' id='column2' value='2'>
         <input type='submit' name='column' id='column3' value='3'>
@@ -48,12 +48,12 @@
         <input type='submit' name='reset' id='reset' value='Reset'>
     </form>
 {% else %}
-<form action='/playerVsEasy' method='POST'>
+<form action='/playerVsMedium' method='POST'>
     <input type='submit' name='reset' id='reset' value='Reset'>
 </form>
 {% endif %}
 <p></p>
-<form action='/playerVsEasy' method='POST'>
+<form action='/playerVsMedium' method='POST'>
     <input type='submit' name='home' id='home' value='Home'>
 </form>
 {% endblock %}

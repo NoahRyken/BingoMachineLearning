@@ -7,28 +7,48 @@ board = [
         [None, None, None, None, None, None, None],
         ]
 color = 1
-fullness = [0] * 7
-possible = range(7)
+fullness = [0, 0, 0, 0, 0, 0, 0]
+possible = [0, 1, 2, 3, 4, 5, 6]
+orderedMoves = []
 
 def moveAdder(nextMove):
     global color
     global board
     global fullness
-    if fullness[nextMove] < 6:
+    global orderedMoves
+
+    for val in possible:
+        if fullness[val] >= 6:
+            possible.remove(val)
+ 
+    if nextMove in possible:
         for index in range(6):
             if board[5-index][nextMove] == None:
                 board[5-index][nextMove] = color
                 color *= -1
                 fullness[nextMove] += 1
+                orderedMoves.append(nextMove)
                 return True
     else:
         return False
 
+def playerMove(val):
+    global color
+    global possible
+    if val in possible:
+        moveAdder(val)
+    if lastMoveWin(val):
+        return color*-1
+    return 0
+
 def reset():
     global board
     global fullness
-    possible = [range(7)]
-    fullness = [0] * 7
+    global possible
+    global orderedMoves
+    possible = [0, 1, 2, 3, 4, 5, 6]
+    fullness = [0, 0, 0, 0, 0, 0, 0]
+    orderedMoves = []
     board = [
         [None, None, None, None, None, None, None],
         [None, None, None, None, None, None, None],
@@ -43,7 +63,7 @@ def full():
     global possible
     possible = []
     for index in range(7):
-        if fullness[index] != 6:
+        if fullness[index] < 6:
             possible.append(index)
             
     if len(possible) == 0:
